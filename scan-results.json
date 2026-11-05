@@ -1,10 +1,50 @@
 {
- "timestamp": "2026-11-05T16:19:21+01:00",
- "lastScan": "2026-11-05T16:19:21+01:00",
- "lastScanRunId": "20261105-161310-aec7",
+ "timestamp": "2026-11-05T16:26:14+01:00",
+ "lastScan": "2026-11-05T16:26:13+01:00",
+ "lastScanRunId": "20261105-162158-3869",
  "mode": "paper",
  "killSwitch": false,
  "candidates": [
+  {
+   "name": "Rocco",
+   "ticker": "Rocco",
+   "mint": "HZbiEpF2oM658EpjNRRqxharz5L9Ddm8akpSH2R5pump",
+   "status": "Beobachtung",
+   "redLayers": 0,
+   "redLayerList": [],
+   "mc": 232929,
+   "athMc": 262909.98,
+   "liquidity": 48388,
+   "poolAgeMin": 19,
+   "foundAt": "2026-11-05T16:25:09+01:00",
+   "lastCheckedAt": "2026-11-05T16:25:09+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/HZbiEpF2oM658EpjNRRqxharz5L9Ddm8akpSH2R5pump",
+   "dexscreenerLink": "https://dexscreener.com/solana/3jw1ykkqutngnudgbrwxpvzktmff4pwytotp3texhkbq",
+   "earlyPhase": false
+  },
+  {
+   "name": "Pocket Money for your AI Agent",
+   "ticker": "PAWKET",
+   "mint": "ECNQSQA7Y5bnXzbotgv6XcG15c6jpJ6V2BFbYzJrpump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L7 Top-10: 45.2% (Schwelle 30.0%)"
+   ],
+   "mc": 1215150,
+   "athMc": 1804557.1,
+   "liquidity": 90388,
+   "poolAgeMin": 15,
+   "foundAt": "2026-11-05T16:24:39+01:00",
+   "lastCheckedAt": "2026-11-05T16:24:39+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/ECNQSQA7Y5bnXzbotgv6XcG15c6jpJ6V2BFbYzJrpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/9icjrrzevflonfyc5xj9cjekdyirt2kvlszq9gmtahfd",
+   "earlyPhase": false
+  },
   {
    "name": "RATELLO",
    "ticker": "RATELLO",
@@ -273,6 +313,41 @@
  },
  "activity": [
   {
+   "time": "2026-11-05T16:26:13+01:00",
+   "type": "scan",
+   "text": "Scan 16:26: 2 geprüft, 2 Treffer"
+  },
+  {
+   "time": "2026-11-05T16:25:09+01:00",
+   "type": "watch",
+   "text": "Rocco: Beobachtung (0 rot)"
+  },
+  {
+   "time": "2026-11-05T16:24:39+01:00",
+   "type": "watch",
+   "text": "Pocket Money for your AI Agent: Beobachtung (1 rot)"
+  },
+  {
+   "time": "2026-11-05T16:22:06+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm blas 271 $ george"
+  },
+  {
+   "time": "2026-11-05T16:22:06+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm blas 451 $ george"
+  },
+  {
+   "time": "2026-11-05T16:22:06+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: flavio 91 $ dumocrats"
+  },
+  {
+   "time": "2026-11-05T16:22:06+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm blas 45 $ USPD"
+  },
+  {
    "time": "2026-11-05T16:19:21+01:00",
    "type": "scan",
    "text": "Scan 16:19: 7 geprüft, 1 Treffer"
@@ -311,47 +386,12 @@
    "time": "2026-11-05T16:13:25+01:00",
    "type": "watch",
    "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: flavio 92 $ dumocrats"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: sm pump 47 $ Malfoid"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: smart mp 368 $ Chihuahua"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: smart mp 47 $ Chihuahua"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: sm blas 46 $ USPD"
   }
  ],
  "stats": {
-  "scansToday": 58,
-  "checkedToday": 106,
-  "candidatesToday": 7,
+  "scansToday": 59,
+  "checkedToday": 108,
+  "candidatesToday": 9,
   "rejectedToday": 73
  },
  "note": "Paper-Modus, keine Trade-Ausführung"
