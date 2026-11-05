@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meme Monitor</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2e3a;
+      --text: #e8eaed;
+      --muted: #8b90a0;
+      --accent: #3b82f6;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .screen { display: none !important; }
+    .screen.active { display: block !important; }
+    #login-screen.active {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    .login-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    .login-card h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .subtitle { color: var(--muted); margin-bottom: 1.5rem; }
+    form { display: flex; flex-direction: column; gap: 0.75rem; }
+    input {
+      background: #111318;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    input:focus { outline: none; border-color: var(--accent); }
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { opacity: 0.9; }
+    .error { color: var(--red); font-size: 0.9rem; min-height: 1.2em; }
+    .hint { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+
+    /* Dashboard */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-weight: 700; font-size: 1.2rem; }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .btn-small {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+    }
+    .btn-primary { background: var(--accent); padding: 0.6rem 1.2rem; }
+    main { padding: 1.25rem; max-width: 1100px; margin: 0 auto; }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr 320px;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (max-width: 1300px) {
+      .layout { grid-template-columns: 300px 1fr; }
+    }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    .market-sidebar, .trades-sidebar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      position: sticky;
+      top: 1rem;
+    }
+    .trade-item {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .trade-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .trade-name { font-weight: 700; }
+    .trade-pnl { font-size: 1.1rem; font-weight: 700; margin: 0.15rem 0; }
+    .trade-pnl.up { color: var(--green); }
+    .trade-pnl.down { color: var(--red); }
+    .activity-log {
+      background: #111318;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem;
+      height: 220px;
+      overflow-y: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .activity-log .log-line {
+      margin-bottom: 0.2rem;
+    }
+    .activity-log .log-line.scan { color: #60a5fa; }
+    .activity-log .log-line.hit { color: #22c55e; }
+    .activity-log .log-line.watch { color: #eab308; }
+    .activity-log .log-line.reject { color: #f87171; }
+    .market-item {
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .market-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .market-name { font-weight: 700; font-size: 0.95rem; }
+    .market-price { font-size: 1.3rem; font-weight: 700; margin: 0.2rem 0; }
+    .market-change { font-size: 0.85rem; }
+    .market-change.up { color: var(--green); }
+    .market-change.down { color: var(--red); }
+    .sparkline {
+      width: 100%;
+      height: 40px;
+      margin-top: 0.3rem;
+    }
+    .status { color: var(--muted); font-size: 0.9rem; }
+    h2 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--muted); }
+    .coins-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    .coins-table th,
+    .coins-table td {
+      padding: 0.7rem 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .coins-table th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .coins-table tr:hover {
+      background: #1e2130;
+    }
+    .coins-table .name {
+      font-weight: 700;
+    }
+    .coins-table .mint {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .coins-table a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 0.5rem;
+    }
+    .coins-table a:hover {
+      text-decoration: underline;
+    }
+    .call-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+    .call-badge.paper { background: #166534; color: #bbf7d0; }
+    .call-badge.watch { background: #854d0e; color: #fef08a; }
+    .meta { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .layers { margin-top: 0.5rem; font-size: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .layer { background: #111318; padding: 0.15rem 0.4rem; border-radius: 4px; }
+    .mint-row { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem; }
+    .mint-row code { font-size: 0.75rem; color: var(--muted); word-break: break-all; }
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.15rem 0.4rem;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .copy-btn:hover { background: #222; }
+    .link:hover { text-decoration: underline; }
+    .reports { display: flex; flex-direction: column; gap: 0.75rem; }
+    .report-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .report-time { color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen active">
+    <div class="login-card">
+      <h1>Meme Monitor</h1>
+      <p class="subtitle">Solana Paper Desk</p>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Benutzername" required autocomplete="username" />
+        <input type="password" id="password" placeholder="Passwort" required autocomplete="current-password" />
+        <button type="submit">Einloggen</button>
+        <p id="login-error" class="error"></p>
+      </form>
+      <p class="hint">Demo: admin / paper</p>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="screen">
+    <header>
+      <div class="logo">Meme Monitor</div>
+      <div class="header-right">
+        <span id="user-label"></span>
+        <button id="logout-btn" class="btn-small">Logout</button>
+      </div>
+    </header>
+    <main>
+      <section class="controls">
+        <button id="scan-btn" class="btn-primary">Jetzt scannen</button>
+        <span id="scan-status" class="status"></span>
+      </section>
+      <div class="layout">
+        <aside class="trades-sidebar">
+          <h2 style="margin-bottom:0.75rem;">Paper-Trades</h2>
+          <div id="paper-trades"></div>
+        </aside>
+        <div>
+          <section>
+            <h2>Letzte Treffer (neu → alt)</h2>
+            <div style="overflow-x: auto;">
+              <table class="coins-table">
+                <thead>
+                  <tr>
+                    <th>Coin</th>
+                    <th>Status</th>
+                    <th>Alter</th>
+                    <th>MC</th>
+                    <th>ATH</th>
+                    <th>Liq</th>
+                    <th>Holder</th>
+                    <th>Mint</th>
+                    <th>Links</th>
+                  </tr>
+                </thead>
+                <tbody id="coins-list"></tbody>
+              </table>
+            </div>
+          </section>
+          <section>
+            <h2>Letzter Bericht</h2>
+            <div id="last-report" class="report-summary">
+              <div class="report-item">
+                <div>
+                  <strong>Nachmittagsbericht (Beispiel)</strong>
+                  <div class="report-time">heute ~16:00</div>
+                </div>
+                <span class="status">bereit</span>
+              </div>
+              <div class="meta" style="margin-top:0.5rem; padding:0.75rem; background:var(--card); border-radius:8px; border:1px solid var(--border);">
+                Neue Coins: 4 · Paper-Calls: 1 · Beobachtungen: 2 · Abgelehnt: 1<br>
+                Paper-Ergebnis Fenster: +1.2 % (+12 $)<br>
+                Kumuliert seit 04.11.: noch im Aufbau
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Berichte</h2>
+            <div id="reports-list" class="reports"></div>
+          </section>
+        </div>
+        <aside class="market-sidebar">
+          <h2 style="margin-bottom:0.75rem;">Markt</h2>
+          <div id="market-btc" class="market-item">
+            <div class="market-name">Bitcoin</div>
+            <div class="market-price" id="price-btc">—</div>
+            <div class="market-change" id="change-btc">—</div>
+            <canvas id="chart-btc" class="sparkline"></canvas>
+          </div>
+          <div id="market-eth" class="market-item">
+            <div class="market-name">Ethereum</div>
+            <div class="market-price" id="price-eth">—</div>
+            <div class="market-change" id="change-eth">—</div>
+            <canvas id="chart-eth" class="sparkline"></canvas>
+          </div>
+          <div id="market-sol" class="market-item">
+            <div class="market-name">Solana</div>
+            <div class="market-price" id="price-sol">—</div>
+            <div class="market-change" id="change-sol">—</div>
+            <canvas id="chart-sol" class="sparkline"></canvas>
+          </div>
+        </aside>
+      </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DEMO_USER = "admin";
+    const DEMO_PASS = "paper";
+
+    const demoCoins = [
+      {
+        name: "Look At Coins",
+        ticker: "Look",
+        mint: "F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump",
+        status: "🟡",
+        type: "Beobachtung",
+        liq: "40.1k $",
+        age: "6.6 h",
+        mc: "202k $",
+        ath: "369k $",
+        holders: "1.294",
+        layers: ["Mint 🟢", "LP 🟢", "Top10 🟢", "Dev 🟢", "Bundle 🔴", "Deployer 🟢"],
+        link: "https://dexscreener.com/solana/zd8e6e7gm3jnppzimls4qs1pvpgwejy4mfch9wd3gpp",
+        axiom: "https://axiom.trade/t/F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump"
+      },
+      {
+        name: "Elon Mosque",
+        ticker: "MOSQUE",
+        mint: "9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
+        status: "🟡",
+        type: "Beobachtung",
+        liq: "28.0k $",
+        age: "7.0 h",
+        mc: "105k $",
+        ath: "249k $",
+        holders: "1.239",
+        layers: ["Mint 🟢", "LP 🟢", "Top10 🟢", "Dev 🟢", "Bundle 🟢", "Deployer 🔴"],
+        link: "https://dexscreener.com/solana/dzudpmhoregekdlrvfxaqmvzceeeeyhhyi2raes6g5xg",
+        axiom: "https://axiom.trade/t/9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE"
+      },
+      {
+        name: "OPEQ",
+        ticker: "OPEQ",
+        mint: "9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
+        status: "🟢",
+        type: "Beobachtung",
+        liq: "33.1k $",
+        age: "17 Tage",
+        mc: "145k $",
+        ath: "—",
+        holders: "—",
+        layers: ["Mint 🟢", "LP 🟢", "Top10 🟢", "Dev 🟢", "Bundle 🟢", "Deployer 🟢"],
+        link: "https://dexscreener.com/solana/85rtdkpksgiawzdwzbs62xupetvgcq7kjjcu1gfyracd",
+        axiom: "https://axiom.trade/t/9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump"
+      }
+    ];
+
+    const paperTrades = [
+      { 
+        name: "OPEQ", 
+        ticker: "OPEQ",
+        mint: "9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
+        entry: "0.000145", 
+        current: "+2.1 %", 
+        status: "offen", 
+        size: "100 $",
+        link: "https://dexscreener.com/solana/85rtdkpksgiawzdwzbs62xupetvgcq7kjjcu1gfyracd",
+        axiom: "https://axiom.trade/t/9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump"
+      },
+      { 
+        name: "Look", 
+        ticker: "Look",
+        mint: "F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump",
+        entry: "0.000202", 
+        current: "−4.3 %", 
+        status: "offen", 
+        size: "Beobachtung",
+        link: "https://dexscreener.com/solana/zd8e6e7gm3jnppzimls4qs1pvpgwejy4mfch9wd3gpp",
+        axiom: "https://axiom.trade/t/F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump"
+      }
+    ];
+
+    const demoReports = [
+      { name: "Morgenbericht", time: "heute ~08:00", status: "bereit", summary: "3 Coins · 0 Calls · +0 %" },
+      { name: "Mittagsbericht", time: "heute 12:00", status: "geplant", summary: "—" },
+      { name: "Nachmittagsbericht", time: "heute ~16:00", status: "geplant", summary: "—" },
+      { name: "Abendbericht", time: "heute ~21:00", status: "geplant", summary: "—" }
+    ];
+
+    const loginScreen = document.getElementById("login-screen");
+    const dashboard = document.getElementById("dashboard");
+    const loginForm = document.getElementById("login-form");
+    const loginError = document.getElementById("login-error");
+    const userLabel = document.getElementById("user-label");
+    const logoutBtn = document.getElementById("logout-btn");
+    const scanBtn = document.getElementById("scan-btn");
+    const scanStatus = document.getElementById("scan-status");
+    const coinsList = document.getElementById("coins-list");
+    const reportsList = document.getElementById("reports-list");
+
+    function showDashboard(username) {
+      loginScreen.classList.remove("active");
+      dashboard.classList.add("active");
+      userLabel.textContent = username;
+      renderCoins();
+      renderPaper();
+      renderReports();
+    }
+
+    function showLogin() {
+      dashboard.classList.remove("active");
+      loginScreen.classList.add("active");
+      loginForm.reset();
+      loginError.textContent = "";
+    }
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value;
+      if (user.toLowerCase() === DEMO_USER && pass === DEMO_PASS) {
+        localStorage.setItem("meme-monitor-user", user);
+        showDashboard(user);
+      } else {
+        loginError.textContent = "Falscher Benutzername oder Passwort";
+      }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("meme-monitor-user");
+      showLogin();
+    });
+
+    scanBtn.addEventListener("click", () => {
+      scanStatus.textContent = "Scan läuft…";
+      scanBtn.disabled = true;
+      setTimeout(() => {
+        scanStatus.textContent = "Scan abgeschlossen – keine neuen Treffer";
+        scanBtn.disabled = false;
+      }, 1800);
+    });
+
+    function parseAge(ageStr) {
+      // Simple parser: "6.6 h" or "17 Tage" → minutes for sorting
+      const m = ageStr.match(/([\d.]+)\s*(h|min|Tage|d)/i);
+      if (!m) return 999999;
+      const val = parseFloat(m[1]);
+      const unit = m[2].toLowerCase();
+      if (unit.startsWith("min")) return val;
+      if (unit.startsWith("h")) return val * 60;
+      if (unit.startsWith("t") || unit.startsWith("d")) return val * 24 * 60;
+      return val;
+    }
+
+    function renderCoins() {
+      const sorted = [...demoCoins].sort((a, b) => parseAge(a.age) - parseAge(b.age));
+      coinsList.innerHTML = sorted.map((coin, i) => `
+        <tr>
+          <td class="name">
+            ${coin.name}<br>
+            <span style="color:var(--muted); font-weight:400;">$${coin.ticker}</span>
+            <span class="call-badge ${coin.type === 'Paper-Call' ? 'paper' : 'watch'}">${coin.type}</span>
+          </td>
+          <td style="font-size:1.1rem;">${coin.status}</td>
+          <td>${coin.age}</td>
+          <td>${coin.mc}</td>
+          <td>${coin.ath}</td>
+          <td>${coin.liq}</td>
+          <td>${coin.holders}</td>
+          <td>
+            <div class="mint-row">
+              <code class="mint">${coin.mint.slice(0, 6)}…${coin.mint.slice(-4)}</code>
+              <button class="copy-btn" onclick="copyMint('${coin.mint}', this)" title="Kopieren">📋</button>
+            </div>
+          </td>
+          <td>
+            <a href="${coin.axiom}" target="_blank" rel="noopener">Axiom</a>
+            <a href="${coin.link}" target="_blank" rel="noopener">Dex</a>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function copyMint(mint, btn) {
+      navigator.clipboard.writeText(mint).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = "✓";
+        setTimeout(() => btn.textContent = orig, 1000);
+      }).catch(() => alert(mint));
+    }
+
+    function renderPaper() {
+      const el = document.getElementById("paper-trades");
+      if (!paperTrades.length) {
+        el.innerHTML = "<div class='trade-meta'>Keine offenen Paper-Trades</div>";
+        return;
+      }
+      el.innerHTML = paperTrades.map((t, i) => {
+        const isUp = t.current.includes("+") || (!t.current.includes("−") && !t.current.includes("-"));
+        return `
+          <div class="trade-item">
+            <div class="trade-name">${t.name} <span style="color:var(--muted); font-weight:400;">$${t.ticker || ""}</span></div>
+            <div class="trade-pnl ${isUp ? 'up' : 'down'}">${t.current}</div>
+            <div class="trade-meta">Entry MC: ${t.entry} · ${t.size}</div>
+            <div class="mint-row" style="margin:0.3rem 0;">
+              <code class="mint" style="font-size:0.65rem;">${t.mint.slice(0,8)}…${t.mint.slice(-4)}</code>
+              <button class="copy-btn" onclick="copyMint('${t.mint}', this)" title="Mint kopieren">📋</button>
+            </div>
+            <div class="trade-meta">${t.status}</div>
+            <canvas id="chart-trade-${i}" class="sparkline" style="margin-top:0.4rem;"></canvas>
+            <div style="margin-top:0.4rem;">
+              <a href="${t.axiom}" target="_blank" rel="noopener" style="color:var(--accent); font-size:0.8rem; margin-right:0.6rem;">Axiom</a>
+              <a href="${t.link}" target="_blank" rel="noopener" style="color:var(--accent); font-size:0.8rem;">Dex</a>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Draw simple placeholder sparklines for paper trades (demo)
+      paperTrades.forEach((t, i) => {
+        const prices = Array.from({length: 20}, (_, j) => 100 + Math.sin(j / 3) * 8 + (t.current.includes("+") ? j * 0.3 : -j * 0.4));
+        drawSparkline("chart-trade-" + i, prices);
+      });
+    }
+    function renderReports() {
+      reportsList.innerHTML = demoReports.map(r => `
+        <div class="report-item">
+          <div>
+            <strong>${r.name}</strong>
+            <div class="report-time">${r.time} · ${r.summary || ""}</div>
+          </div>
+          <span class="status">${r.status}</span>
+        </div>
+      `).join("");
+    }
+
+    // Live market prices (Binance public API)
+    async function fetchMarket() {
+      try {
+        const symbols = ["BTCUSDT", "ETHUSDT", "SOLUSDT"];
+        const res = await fetch("https://api.binance.com/api/v3/ticker/24hr?symbols=" + JSON.stringify(symbols));
+        const data = await res.json();
+        data.forEach(item => {
+          const id = item.symbol.replace("USDT", "").toLowerCase();
+          const priceEl = document.getElementById("price-" + id);
+          const changeEl = document.getElementById("change-" + id);
+          if (priceEl) priceEl.textContent = "$" + parseFloat(item.lastPrice).toLocaleString(undefined, { maximumFractionDigits: id === "btc" ? 0 : 2 });
+          if (changeEl) {
+            const pct = parseFloat(item.priceChangePercent);
+            changeEl.textContent = (pct >= 0 ? "+" : "") + pct.toFixed(2) + "% (24h)";
+            changeEl.className = "market-change " + (pct >= 0 ? "up" : "down");
+          }
+        });
+
+        // Simple sparklines from klines
+        for (const sym of ["BTC", "ETH", "SOL"]) {
+          const kRes = await fetch(`https://api.binance.com/api/v3/klines?symbol=${sym}USDT&interval=15m&limit=40`);
+          const klines = await kRes.json();
+          const prices = klines.map(k => parseFloat(k[4]));
+          drawSparkline("chart-" + sym.toLowerCase(), prices);
+        }
+      } catch (e) {
+        console.log("Market fetch failed", e);
+      }
+    }
+
+    function drawSparkline(canvasId, prices) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas || prices.length < 2) return;
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width = canvas.offsetWidth;
+      const h = canvas.height = 40;
+      const min = Math.min(...prices);
+      const max = Math.max(...prices);
+      const range = max - min || 1;
+      ctx.clearRect(0, 0, w, h);
+      ctx.beginPath();
+      prices.forEach((p, i) => {
+        const x = (i / (prices.length - 1)) * w;
+        const y = h - ((p - min) / range) * h;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = prices[prices.length - 1] >= prices[0] ? "#22c55e" : "#ef4444";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    // Live activity log simulation
+    const logMessages = [
+      { type: "scan", text: "Scan läuft – prüfe frische Pump.fun / DexScreener Coins..." },
+      { type: "scan", text: "Vorfilter: Liquidität ≥ 20k $, Pool-Alter ≥ 5 Min" },
+      { type: "reject", text: "Coin XYZ abgelehnt – Bundle 14 % (Schwelle 10 %)" },
+      { type: "scan", text: "Prüfe Wallet-Watchlist (122 Adressen)..." },
+      { type: "watch", text: "Watchlist-Kauf erkannt: smart ssy → titcoin (~97 $)" },
+      { type: "hit", text: "Kandidat gefunden: 0 rote Layer – Paper-Call vorbereiten" },
+      { type: "scan", text: "Social-Scan: prüfe X / FOMO-Handles auf Narrative..." },
+      { type: "reject", text: "Coin ABC abgelehnt – Top-10 38 % (Schwelle 30 %)" },
+      { type: "scan", text: "Nächster Scan in wenigen Minuten..." }
+    ];
+
+    function addLogLine(type, text) {
+      const log = document.getElementById("activity-log");
+      if (!log) return;
+      const line = document.createElement("div");
+      line.className = "log-line " + type;
+      const time = new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      line.textContent = `[${time}] ${text}`;
+      log.appendChild(line);
+      log.scrollTop = log.scrollHeight;
+      // Keep only last ~40 lines
+      while (log.children.length > 40) log.removeChild(log.firstChild);
+    }
+
+    function startActivityLog() {
+      let i = 0;
+      addLogLine("scan", "Bot ist aktiv und sucht nach neuen Coins...");
+      setInterval(() => {
+        const msg = logMessages[i % logMessages.length];
+        addLogLine(msg.type, msg.text);
+        i++;
+      }, 3500);
+    }
+
+    // Try to load real scan results from scan-results.json
+    async function loadRealData() {
+      try {
+        const res = await fetch("scan-results.json?t=" + Date.now());
+        if (!res.ok) return;
+        const data = await res.json();
+
+        // Update candidates table if present
+        if (data.candidates && Array.isArray(data.candidates)) {
+          demoCoins.length = 0;
+          data.candidates.forEach(c => demoCoins.push({
+            name: c.name || "Unknown",
+            ticker: c.ticker || "",
+            mint: c.mint || "",
+            status: c.redLayers === 0 ? "🟢" : "🟡",
+            type: c.redLayers === 0 ? "Paper-Call" : "Beobachtung",
+            liq: c.liquidity || "—",
+            age: c.age || "—",
+            mc: c.mc || "—",
+            ath: c.ath || "—",
+            holders: c.holders || "—",
+            layers: c.layers || [],
+            link: c.dex || ("https://dexscreener.com/solana/" + (c.mint || "")),
+            axiom: c.axiom || ("https://axiom.trade/t/" + (c.mint || ""))
+          }));
+          renderCoins();
+        }
+
+        // Update paper trades
+        if (data.paperTrades && Array.isArray(data.paperTrades)) {
+          paperTrades.length = 0;
+          data.paperTrades.forEach(t => paperTrades.push(t));
+          renderPaper();
+        }
+
+        // Update activity log
+        if (data.activity && Array.isArray(data.activity)) {
+          const log = document.getElementById("activity-log");
+          if (log) {
+            log.innerHTML = "";
+            data.activity.slice(-20).forEach(a => addLogLine(a.type || "scan", a.text || ""));
+          }
+        }
+      } catch (e) {
+        // File not found or CORS – stay with demo data
+      }
+    }
+
+    // Hook into dashboard
+    const origShow2 = showDashboard;
+    showDashboard = function(username) {
+      origShow2(username);
+      startActivityLog();
+      fetchMarket();
+      setInterval(fetchMarket, 30000);
+      loadRealData();
+      setInterval(loadRealData, 15000); // check every 15s
+    };
+
+    // Auto-login
+    const savedUser = localStorage.getItem("meme-monitor-user");
+    if (savedUser) showDashboard(savedUser);
+  </script>
+</body>
+</html>
