@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-11-05T15:15:00+01:00",
+  "lastScan": "2026-11-05 15:11 (Berlin)",
+  "candidates": [
+    {
+      "name": "Look At Coins",
+      "ticker": "Look",
+      "mint": "F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump",
+      "redLayers": 1,
+      "liquidity": "40.1k $",
+      "age": "6.6 h",
+      "mc": "202k $",
+      "ath": "369k $",
+      "holders": "1.294",
+      "axiom": "https://axiom.trade/t/F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump",
+      "dex": "https://dexscreener.com/solana/zd8e6e7gm3jnppzimls4qs1pvpgwejy4mfch9wd3gpp"
+    },
+    {
+      "name": "Elon Mosque",
+      "ticker": "MOSQUE",
+      "mint": "9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
+      "redLayers": 1,
+      "liquidity": "28.0k $",
+      "age": "7.0 h",
+      "mc": "105k $",
+      "ath": "249k $",
+      "holders": "1.239",
+      "axiom": "https://axiom.trade/t/9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
+      "dex": "https://dexscreener.com/solana/dzudpmhoregekdlrvfxaqmvzceeeeyhhyi2raes6g5xg"
+    }
+  ],
+  "paperTrades": [
+    {
+      "name": "OPEQ",
+      "ticker": "OPEQ",
+      "mint": "9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
+      "entry": "145k $",
+      "current": "+2.1 %",
+      "status": "offen",
+      "size": "100 $",
+      "axiom": "https://axiom.trade/t/9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
+      "link": "https://dexscreener.com/solana/85rtdkpksgiawzdwzbs62xupetvgcq7kjjcu1gfyracd"
+    }
+  ],
+  "activity": [
+    { "type": "scan", "text": "Scan abgeschlossen – 2 Kandidaten gefunden" },
+    { "type": "watch", "text": "Watchlist-Kauf: smart ssy → titcoin (~97 $)" },
+    { "type": "hit", "text": "Kandidat: Look At Coins (1 roter Layer)" }
+  ]
+}
