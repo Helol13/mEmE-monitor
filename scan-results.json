@@ -1,50 +1,337 @@
 {
-  "timestamp": "2026-11-05T15:15:00+01:00",
-  "lastScan": "2026-11-05 15:11 (Berlin)",
-  "candidates": [
-    {
-      "name": "Look At Coins",
-      "ticker": "Look",
-      "mint": "F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump",
-      "redLayers": 1,
-      "liquidity": "40.1k $",
-      "age": "6.6 h",
-      "mc": "202k $",
-      "ath": "369k $",
-      "holders": "1.294",
-      "axiom": "https://axiom.trade/t/F49ncWoGVf2EYpg4iqbkhuMvyLRgJYSrTMT3jCUSpump",
-      "dex": "https://dexscreener.com/solana/zd8e6e7gm3jnppzimls4qs1pvpgwejy4mfch9wd3gpp"
+ "timestamp": "2026-11-05T15:41:07+01:00",
+ "lastScan": "2026-11-05T15:41:07+01:00",
+ "lastScanRunId": "20261105-153801-3b24",
+ "mode": "paper",
+ "killSwitch": false,
+ "candidates": [
+  {
+   "name": "Digital Slop Coin",
+   "ticker": "SLOP",
+   "mint": "6z3cf9nDuxdA9xyccx8m8SonWdZGH5s9kbqAeaV5gajt",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L12 Copycat: 1 früher gestartete gleichnamige Tokens mit mehr Liquidität (≥5,000 $): slop ($slop) 49,687 $ seit 21.10.20"
+   ],
+   "mc": 1721382,
+   "athMc": 431806.31,
+   "liquidity": 27604,
+   "poolAgeMin": 922,
+   "foundAt": "2026-11-05T00:06:37+01:00",
+   "lastCheckedAt": "2026-11-05T14:26:31+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/6z3cf9nDuxdA9xyccx8m8SonWdZGH5s9kbqAeaV5gajt",
+   "dexscreenerLink": "https://dexscreener.com/solana/fsrk3tjj7y3vfvsqje1dzrxep9uu6rksq1hkrjeonlka",
+   "earlyPhase": false
+  },
+  {
+   "name": "Cristiano Ronaldo",
+   "ticker": "CR",
+   "mint": "GpsEwFGmEhPHsobgJYuYnPcNtxc8EJi6CVRLZtYaVKj9",
+   "status": "Beobachtung",
+   "redLayers": 0,
+   "redLayerList": [],
+   "mc": 159039,
+   "athMc": 180441.94,
+   "liquidity": 32858,
+   "poolAgeMin": 27,
+   "foundAt": "2026-11-05T12:11:06+01:00",
+   "lastCheckedAt": "2026-11-05T12:11:06+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/GpsEwFGmEhPHsobgJYuYnPcNtxc8EJi6CVRLZtYaVKj9",
+   "dexscreenerLink": "https://dexscreener.com/solana/8cvuh9gblrs1yrvs8dbeirzy2f7udosmnprwxrhxnpbl",
+   "earlyPhase": false
+  },
+  {
+   "name": "Elon Mosque",
+   "ticker": "MOSQUE",
+   "mint": "9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L10 Deployer-Historie: 0 frühere Tokens (Creator); Stichprobe 0; tot 0 = n/a (rot ab ≥20 Tokens UND ≥70% tot) | Launcher"
+   ],
+   "mc": 105478,
+   "athMc": 248703.52,
+   "liquidity": 28044,
+   "poolAgeMin": 422,
+   "foundAt": "2026-11-05T04:35:19+01:00",
+   "lastCheckedAt": "2026-11-05T11:09:32+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
+   "dexscreenerLink": "https://dexscreener.com/solana/dzudpmhoregekdlrvfxaqmvzceeeeyhhyi2raes6g5xg",
+   "earlyPhase": false
+  },
+  {
+   "name": "The Pink Bull",
+   "ticker": "Tanisha",
+   "mint": "9A9vMe8m78yWJpKv7DqgTSSNHSKKeF64neivVkripump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L5 Liquidität: 16,944 $ (DS 16,944 / GT 16,980) vs Schwelle 20,000 $"
+   ],
+   "mc": 50006,
+   "athMc": 341934.79,
+   "liquidity": 16944,
+   "poolAgeMin": 96,
+   "foundAt": "2026-11-05T02:03:20+01:00",
+   "lastCheckedAt": "2026-11-05T03:19:13+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/9A9vMe8m78yWJpKv7DqgTSSNHSKKeF64neivVkripump",
+   "dexscreenerLink": "https://dexscreener.com/solana/fth1l8ta6eksxbqwqzwurlxmjnsh5vrxuqsfp96bnat",
+   "earlyPhase": false
+  },
+  {
+   "name": "Nuts",
+   "ticker": "NUTS",
+   "mint": "6GjZvj8aT5t4jEi7xiMkK3nqqKNiYVes1n5Va8Zfpump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L5 Liquidität: 0 $ (DS 17,206 / GT 0) vs Schwelle 20,000 $ | Hinweis: Quellen weichen 100% ab"
+   ],
+   "mc": 42161,
+   "athMc": null,
+   "liquidity": 0,
+   "poolAgeMin": 54,
+   "foundAt": "2026-11-05T01:37:03+01:00",
+   "lastCheckedAt": "2026-11-05T01:37:03+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/6GjZvj8aT5t4jEi7xiMkK3nqqKNiYVes1n5Va8Zfpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/thi77yktakfmsxleke3awcwjxsfpf8zmxyy4lmmsfcv",
+   "earlyPhase": false
+  },
+  {
+   "name": "OPEQ",
+   "ticker": "OPEQ",
+   "mint": "9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
+   "status": "Beobachtung",
+   "redLayers": 0,
+   "redLayerList": [],
+   "mc": null,
+   "athMc": null,
+   "liquidity": 33112,
+   "poolAgeMin": 24755,
+   "foundAt": "2026-11-04T22:00:03+01:00",
+   "lastCheckedAt": "2026-11-04T22:00:03+01:00",
+   "source": "Social",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/85rtdkpksgiawzdwzbs62xupetvgcq7kjjcu1gfyracd",
+   "earlyPhase": false
+  },
+  {
+   "name": "Impeach",
+   "ticker": "Impeach",
+   "mint": "F2xQeTCTqnczXxXQaBWAfDpUnpxn4wQHRPSqvUYJpump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L10 Deployer-Historie: 0 frühere Tokens (Creator); Stichprobe 0; tot 0 = n/a (rot ab ≥20 Tokens UND ≥70% tot) | Launcher"
+   ],
+   "mc": null,
+   "athMc": null,
+   "liquidity": 91275,
+   "poolAgeMin": 1416,
+   "foundAt": "2026-11-04T21:34:27+01:00",
+   "lastCheckedAt": "2026-11-04T21:54:21+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/F2xQeTCTqnczXxXQaBWAfDpUnpxn4wQHRPSqvUYJpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/12y1mrkwewewoyqhswybesjzm8gagnig1xqgqlc5uw3v",
+   "earlyPhase": false
+  },
+  {
+   "name": "Manifesting",
+   "ticker": "MANIFEST",
+   "mint": "BCdwQBAn8dYB5YjTsoB6TdHAWokxv28k2oZUodERpump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L10 Deployer-Historie: 0 frühere Tokens (Creator+Signer); Stichprobe 0; tot 0 = n/a (rot ab ≥20 Tokens UND ≥70% tot) | c"
+   ],
+   "mc": null,
+   "athMc": null,
+   "liquidity": 402028,
+   "poolAgeMin": 247243,
+   "foundAt": "2026-11-04T21:51:02+01:00",
+   "lastCheckedAt": "2026-11-04T21:51:02+01:00",
+   "source": "Social",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/BCdwQBAn8dYB5YjTsoB6TdHAWokxv28k2oZUodERpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/2dvbu5h8jcd37gaxajuz4t77hsjjw22lldutzk7gsa43",
+   "earlyPhase": false
+  },
+  {
+   "name": "Suicaのペンギン",
+   "ticker": "Suica",
+   "mint": "t2TGpqDS81fNNXCST8hxNrRsfVPxJdw41Cct4yLpump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L5 Liquidität: 18,687 $ (DS 18,687 / GT 22,174) vs Schwelle 20,000 $"
+   ],
+   "mc": null,
+   "athMc": null,
+   "liquidity": 18687,
+   "poolAgeMin": 1098,
+   "foundAt": "2026-11-04T21:37:17+01:00",
+   "lastCheckedAt": "2026-11-04T21:37:17+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/t2TGpqDS81fNNXCST8hxNrRsfVPxJdw41Cct4yLpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/byvbfg1taqm1d1nzw4df5xtrympggytdg5uiycpm8eer",
+   "earlyPhase": false
+  }
+ ],
+ "paperTrades": {
+  "open": [],
+  "closedToday": [
+   {
+    "name": "Souvenir",
+    "ticker": "SOUVENIR",
+    "mint": "5wSQpQfbdSKs7amvyxa2XTzWXNyionERZWdDWykYm1At",
+    "entryAt": "2026-11-05T06:32:10+01:00",
+    "entryMc": null,
+    "entryPrice": 0.00037002499375099967,
+    "sizeUsd": 100.0,
+    "exit": {
+     "at": "2026-11-05T07:31:00+01:00",
+     "grund": "Take-Profit +50 %",
+     "price": 0.0005494871157202345
     },
-    {
-      "name": "Elon Mosque",
-      "ticker": "MOSQUE",
-      "mint": "9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
-      "redLayers": 1,
-      "liquidity": "28.0k $",
-      "age": "7.0 h",
-      "mc": "105k $",
-      "ath": "249k $",
-      "holders": "1.239",
-      "axiom": "https://axiom.trade/t/9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
-      "dex": "https://dexscreener.com/solana/dzudpmhoregekdlrvfxaqmvzceeeeyhhyi2raes6g5xg"
-    }
+    "ergebnisPct": 48.5,
+    "ergebnisUsd": 48.5
+   },
+   {
+    "name": "Elon Mosque",
+    "ticker": "MOSQUE",
+    "mint": "9FCjRfsuH4ziTqE39dH2wjcpRF5necYUKYpoNtCFdwKE",
+    "entryAt": "2026-11-05T04:35:19+01:00",
+    "entryMc": null,
+    "entryPrice": 0.00010339336601712539,
+    "sizeUsd": 100.0,
+    "exit": {
+     "at": "2026-11-05T04:47:00+01:00",
+     "grund": "Take-Profit +50 %",
+     "price": 0.0001535391485354312
+    },
+    "ergebnisPct": 48.5,
+    "ergebnisUsd": 48.5
+   },
+   {
+    "name": "The Pink Bull",
+    "ticker": "Tanisha",
+    "mint": "9A9vMe8m78yWJpKv7DqgTSSNHSKKeF64neivVkripump",
+    "entryAt": "2026-11-05T02:03:20+01:00",
+    "entryMc": null,
+    "entryPrice": 0.00011854666795801252,
+    "sizeUsd": 100.0,
+    "exit": {
+     "at": "2026-11-05T02:57:00+01:00",
+     "grund": "Stop-Loss −25 %",
+     "price": 8.80209009588243e-05
+    },
+    "ergebnisPct": -25.75,
+    "ergebnisUsd": -25.75
+   }
   ],
-  "paperTrades": [
-    {
-      "name": "OPEQ",
-      "ticker": "OPEQ",
-      "mint": "9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
-      "entry": "145k $",
-      "current": "+2.1 %",
-      "status": "offen",
-      "size": "100 $",
-      "axiom": "https://axiom.trade/t/9tpHqTJ2d8jMZJjZzsf9MCfnCEmbAjsqjPJ56PzSpump",
-      "link": "https://dexscreener.com/solana/85rtdkpksgiawzdwzbs62xupetvgcq7kjjcu1gfyracd"
-    }
-  ],
-  "activity": [
-    { "type": "scan", "text": "Scan abgeschlossen – 2 Kandidaten gefunden" },
-    { "type": "watch", "text": "Watchlist-Kauf: smart ssy → titcoin (~97 $)" },
-    { "type": "hit", "text": "Kandidat: Look At Coins (1 roter Layer)" }
-  ]
+  "cumulative": {
+   "usd": 71.25,
+   "pct": 23.75,
+   "trades": 3,
+   "hinweis": "Paper-Daten teils ungeprüft; Basis: saubere Neuberechnung paper-rerun-0855 (Stand 05.11. 08:56), nur Paper-Calls, fiktiv"
+  }
+ },
+ "activity": [
+  {
+   "time": "2026-11-05T15:41:07+01:00",
+   "type": "scan",
+   "text": "Scan 15:41: 1 geprüft, 0 Treffer"
+  },
+  {
+   "time": "2026-11-05T15:41:05+01:00",
+   "type": "reject",
+   "text": "george abgelehnt (2 rot: L9 Bundle/Cluster, L10 Deployer-Historie)"
+  },
+  {
+   "time": "2026-11-05T15:20:46+01:00",
+   "type": "scan",
+   "text": "Scan 15:20: 1 geprüft, 0 Treffer"
+  },
+  {
+   "time": "2026-11-05T15:20:21+01:00",
+   "type": "reject",
+   "text": "chihuahua abgelehnt (3 rot: L5 Liquidität, L9 Bundle/Cluster, L12 Copycat)"
+  },
+  {
+   "time": "2026-11-05T15:19:56+01:00",
+   "type": "scan",
+   "text": "Scan 15:19: 0 geprüft, 0 Treffer"
+  },
+  {
+   "time": "2026-11-05T15:18:35+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: intell trader 191 $ Chihuahua"
+  },
+  {
+   "time": "2026-11-05T15:12:16+01:00",
+   "type": "scan",
+   "text": "Scan 15:12: 1 geprüft, 0 Treffer"
+  },
+  {
+   "time": "2026-11-05T15:12:11+01:00",
+   "type": "reject",
+   "text": "Myron Gaines President abgelehnt (4 rot: L5 Liquidität, L9 Bundle/Cluster, L10 Deployer-Historie)"
+  },
+  {
+   "time": "2026-11-05T15:11:29+01:00",
+   "type": "scan",
+   "text": "Scan 15:11: 3 geprüft, 0 Treffer"
+  },
+  {
+   "time": "2026-11-05T15:11:27+01:00",
+   "type": "reject",
+   "text": "Rip Kira-Chan abgelehnt (2 rot: L5 Liquidität, L9 Bundle/Cluster)"
+  },
+  {
+   "time": "2026-11-05T15:11:06+01:00",
+   "type": "reject",
+   "text": "Bobby Fischer abgelehnt (3 rot: L5 Liquidität, L7 Top-10, L9 Bundle/Cluster)"
+  },
+  {
+   "time": "2026-11-05T15:10:51+01:00",
+   "type": "reject",
+   "text": "Sounder abgelehnt (2 rot: L5 Liquidität, L9 Bundle/Cluster)"
+  },
+  {
+   "time": "2026-11-05T15:09:19+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: emre 98 $ President"
+  },
+  {
+   "time": "2026-11-05T14:58:31+01:00",
+   "type": "scan",
+   "text": "Scan 14:58: 2 geprüft, 2 Treffer"
+  },
+  {
+   "time": "2026-11-05T14:58:22+01:00",
+   "type": "reject",
+   "text": "Socialcoin abgelehnt (L9 Bundle/Cluster)"
+  }
+ ],
+ "stats": {
+  "scansToday": 57,
+  "checkedToday": 100,
+  "candidatesToday": 6,
+  "rejectedToday": 70
+ },
+ "note": "Paper-Modus, keine Trade-Ausführung"
 }
