@@ -1,5 +1,5 @@
 {
- "timestamp": "2026-11-05T15:41:07+01:00",
+ "timestamp": "2026-11-05T16:16:44+01:00",
  "lastScan": "2026-11-05T15:41:07+01:00",
  "lastScanRunId": "20261105-153801-3b24",
  "mode": "paper",
@@ -252,6 +252,26 @@
  },
  "activity": [
   {
+   "time": "2026-11-05T16:16:42+01:00",
+   "type": "reject",
+   "text": "Wealth Coin abgelehnt (2 rot: L9 Bundle/Cluster, L12 Copycat)"
+  },
+  {
+   "time": "2026-11-05T16:16:11+01:00",
+   "type": "reject",
+   "text": "GHOST RIDER abgelehnt (4 rot: L5 Liquidität, L9 Bundle/Cluster, L10 Deployer-Historie)"
+  },
+  {
+   "time": "2026-11-05T16:15:44+01:00",
+   "type": "reject",
+   "text": "A Meme Democrats abgelehnt (2 rot: L9 Bundle/Cluster, L12 Copycat)"
+  },
+  {
+   "time": "2026-11-05T16:15:10+01:00",
+   "type": "reject",
+   "text": "Anime Bitcoin abgelehnt (3 rot: L7 Top-10, L9 Bundle/Cluster, L10 Deployer-Historie)"
+  },
+  {
    "time": "2026-11-05T15:41:07+01:00",
    "type": "scan",
    "text": "Scan 15:41: 1 geprüft, 0 Treffer"
@@ -305,33 +325,13 @@
    "time": "2026-11-05T15:11:06+01:00",
    "type": "reject",
    "text": "Bobby Fischer abgelehnt (3 rot: L5 Liquidität, L7 Top-10, L9 Bundle/Cluster)"
-  },
-  {
-   "time": "2026-11-05T15:10:51+01:00",
-   "type": "reject",
-   "text": "Sounder abgelehnt (2 rot: L5 Liquidität, L9 Bundle/Cluster)"
-  },
-  {
-   "time": "2026-11-05T15:09:19+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: emre 98 $ President"
-  },
-  {
-   "time": "2026-11-05T14:58:31+01:00",
-   "type": "scan",
-   "text": "Scan 14:58: 2 geprüft, 2 Treffer"
-  },
-  {
-   "time": "2026-11-05T14:58:22+01:00",
-   "type": "reject",
-   "text": "Socialcoin abgelehnt (L9 Bundle/Cluster)"
   }
  ],
  "stats": {
   "scansToday": 57,
-  "checkedToday": 100,
+  "checkedToday": 104,
   "candidatesToday": 6,
-  "rejectedToday": 70
+  "rejectedToday": 72
  },
  "note": "Paper-Modus, keine Trade-Ausführung"
 }
