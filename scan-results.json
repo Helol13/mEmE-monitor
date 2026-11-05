@@ -1,10 +1,31 @@
 {
- "timestamp": "2026-11-05T16:16:44+01:00",
- "lastScan": "2026-11-05T15:41:07+01:00",
- "lastScanRunId": "20261105-153801-3b24",
+ "timestamp": "2026-11-05T16:19:21+01:00",
+ "lastScan": "2026-11-05T16:19:21+01:00",
+ "lastScanRunId": "20261105-161310-aec7",
  "mode": "paper",
  "killSwitch": false,
  "candidates": [
+  {
+   "name": "RATELLO",
+   "ticker": "RATELLO",
+   "mint": "7tKA8ghhfzz27XMSRWHBTYkpyf7oPzziwZgsgyNZpump",
+   "status": "Beobachtung",
+   "redLayers": 1,
+   "redLayerList": [
+    "L12 Copycat: 1 früher gestartete gleichnamige Tokens mit mehr Liquidität (≥5,000 $): RATELLO (RATELLO) 22,631 $ seit 03."
+   ],
+   "mc": 69395,
+   "athMc": 166615.37,
+   "liquidity": 20171,
+   "poolAgeMin": 17,
+   "foundAt": "2026-11-05T16:17:02+01:00",
+   "lastCheckedAt": "2026-11-05T16:17:02+01:00",
+   "source": "Scanner",
+   "watchlistBuy": null,
+   "axiomLink": "https://axiom.trade/t/7tKA8ghhfzz27XMSRWHBTYkpyf7oPzziwZgsgyNZpump",
+   "dexscreenerLink": "https://dexscreener.com/solana/h4gsgezx2qjy3hte8ubhsyd7scjzuujxwcv4rpqn7bhd",
+   "earlyPhase": false
+  },
   {
    "name": "Digital Slop Coin",
    "ticker": "SLOP",
@@ -252,6 +273,21 @@
  },
  "activity": [
   {
+   "time": "2026-11-05T16:19:21+01:00",
+   "type": "scan",
+   "text": "Scan 16:19: 7 geprüft, 1 Treffer"
+  },
+  {
+   "time": "2026-11-05T16:17:28+01:00",
+   "type": "reject",
+   "text": "titcoin abgelehnt (2 rot: L9 Bundle/Cluster, L12 Copycat)"
+  },
+  {
+   "time": "2026-11-05T16:17:02+01:00",
+   "type": "watch",
+   "text": "RATELLO: Beobachtung (1 rot)"
+  },
+  {
    "time": "2026-11-05T16:16:42+01:00",
    "type": "reject",
    "text": "Wealth Coin abgelehnt (2 rot: L9 Bundle/Cluster, L12 Copycat)"
@@ -272,66 +308,51 @@
    "text": "Anime Bitcoin abgelehnt (3 rot: L7 Top-10, L9 Bundle/Cluster, L10 Deployer-Historie)"
   },
   {
-   "time": "2026-11-05T15:41:07+01:00",
-   "type": "scan",
-   "text": "Scan 15:41: 1 geprüft, 0 Treffer"
-  },
-  {
-   "time": "2026-11-05T15:41:05+01:00",
-   "type": "reject",
-   "text": "george abgelehnt (2 rot: L9 Bundle/Cluster, L10 Deployer-Historie)"
-  },
-  {
-   "time": "2026-11-05T15:20:46+01:00",
-   "type": "scan",
-   "text": "Scan 15:20: 1 geprüft, 0 Treffer"
-  },
-  {
-   "time": "2026-11-05T15:20:21+01:00",
-   "type": "reject",
-   "text": "chihuahua abgelehnt (3 rot: L5 Liquidität, L9 Bundle/Cluster, L12 Copycat)"
-  },
-  {
-   "time": "2026-11-05T15:19:56+01:00",
-   "type": "scan",
-   "text": "Scan 15:19: 0 geprüft, 0 Treffer"
-  },
-  {
-   "time": "2026-11-05T15:18:35+01:00",
+   "time": "2026-11-05T16:13:25+01:00",
    "type": "watch",
-   "text": "Watchlist-Kauf: intell trader 191 $ Chihuahua"
+   "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
   },
   {
-   "time": "2026-11-05T15:12:16+01:00",
-   "type": "scan",
-   "text": "Scan 15:12: 1 geprüft, 0 Treffer"
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
   },
   {
-   "time": "2026-11-05T15:12:11+01:00",
-   "type": "reject",
-   "text": "Myron Gaines President abgelehnt (4 rot: L5 Liquidität, L9 Bundle/Cluster, L10 Deployer-Historie)"
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
   },
   {
-   "time": "2026-11-05T15:11:29+01:00",
-   "type": "scan",
-   "text": "Scan 15:11: 3 geprüft, 0 Treffer"
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: flavio 92 $ dumocrats"
   },
   {
-   "time": "2026-11-05T15:11:27+01:00",
-   "type": "reject",
-   "text": "Rip Kira-Chan abgelehnt (2 rot: L5 Liquidität, L9 Bundle/Cluster)"
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm pump 47 $ Malfoid"
   },
   {
-   "time": "2026-11-05T15:11:06+01:00",
-   "type": "reject",
-   "text": "Bobby Fischer abgelehnt (3 rot: L5 Liquidität, L7 Top-10, L9 Bundle/Cluster)"
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: smart mp 368 $ Chihuahua"
+  },
+  {
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: smart mp 47 $ Chihuahua"
+  },
+  {
+   "time": "2026-11-05T16:13:25+01:00",
+   "type": "watch",
+   "text": "Watchlist-Kauf: sm blas 46 $ USPD"
   }
  ],
  "stats": {
-  "scansToday": 57,
-  "checkedToday": 104,
-  "candidatesToday": 6,
-  "rejectedToday": 72
+  "scansToday": 58,
+  "checkedToday": 106,
+  "candidatesToday": 7,
+  "rejectedToday": 73
  },
  "note": "Paper-Modus, keine Trade-Ausführung"
 }
