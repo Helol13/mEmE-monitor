@@ -1,7 +1,7 @@
 {
- "timestamp": "2026-11-05T16:26:14+01:00",
- "lastScan": "2026-11-05T16:26:13+01:00",
- "lastScanRunId": "20261105-162158-3869",
+ "timestamp": "2026-11-05T16:28:34+01:00",
+ "lastScan": "2026-11-05T16:28:34+01:00",
+ "lastScanRunId": "20261105-162656-6b1e",
  "mode": "paper",
  "killSwitch": false,
  "candidates": [
@@ -313,6 +313,26 @@
  },
  "activity": [
   {
+   "time": "2026-11-05T16:28:34+01:00",
+   "type": "scan",
+   "text": "Scan 16:28: 3 geprüft, 0 Treffer"
+  },
+  {
+   "time": "2026-11-05T16:28:26+01:00",
+   "type": "reject",
+   "text": "george abgelehnt (2 rot: L9 Bundle/Cluster, L10 Deployer-Historie)"
+  },
+  {
+   "time": "2026-11-05T16:27:53+01:00",
+   "type": "reject",
+   "text": "United States Of Paranoia Dollar abgelehnt (2 rot: L5 Liquidität, L12 Copycat)"
+  },
+  {
+   "time": "2026-11-05T16:27:18+01:00",
+   "type": "reject",
+   "text": "dumocrats abgelehnt (2 rot: L5 Liquidität, L10 Deployer-Historie)"
+  },
+  {
    "time": "2026-11-05T16:26:13+01:00",
    "type": "scan",
    "text": "Scan 16:26: 2 geprüft, 2 Treffer"
@@ -366,33 +386,13 @@
    "time": "2026-11-05T16:16:42+01:00",
    "type": "reject",
    "text": "Wealth Coin abgelehnt (2 rot: L9 Bundle/Cluster, L12 Copycat)"
-  },
-  {
-   "time": "2026-11-05T16:16:11+01:00",
-   "type": "reject",
-   "text": "GHOST RIDER abgelehnt (4 rot: L5 Liquidität, L9 Bundle/Cluster, L10 Deployer-Historie)"
-  },
-  {
-   "time": "2026-11-05T16:15:44+01:00",
-   "type": "reject",
-   "text": "A Meme Democrats abgelehnt (2 rot: L9 Bundle/Cluster, L12 Copycat)"
-  },
-  {
-   "time": "2026-11-05T16:15:10+01:00",
-   "type": "reject",
-   "text": "Anime Bitcoin abgelehnt (3 rot: L7 Top-10, L9 Bundle/Cluster, L10 Deployer-Historie)"
-  },
-  {
-   "time": "2026-11-05T16:13:25+01:00",
-   "type": "watch",
-   "text": "Watchlist-Kauf: sm pump 92 $ Malfoid"
   }
  ],
  "stats": {
-  "scansToday": 59,
-  "checkedToday": 108,
+  "scansToday": 60,
+  "checkedToday": 111,
   "candidatesToday": 9,
-  "rejectedToday": 73
+  "rejectedToday": 75
  },
  "note": "Paper-Modus, keine Trade-Ausführung"
 }
